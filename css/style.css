@@ -1,0 +1,21 @@
+/* Required CSS */
+html, body{padding: 0 !important; margin: 0 !important; height: 100% !important; overflow-x: hidden;}
+.box-shadow{box-shadow: 0px 1px 2px 0px grey; transition: 0.1s linear;}
+.box-shadow:hover{box-shadow: 0px 1px 2px 1px grey; transition: 0.25s linear;}
+.box-shadow-md{box-shadow: 0px 2px 2px 0px grey; transition: 0.1s linear;}
+.box-shadow-md:hover{box-shadow: 0px 2px 2px 1px grey; transition: 0.25s linear;}
+.text-shadow{text-shadow: 3px 3px 10px grey; transition: 0.1s linear;}
+.text-shadow:hover{text-shadow: 1px 1px 0px grey; transition: 0.25s linear;}
+.white-placeholder::placeholder{color:rgb(255, 255, 255);}
+.cursor{cursor: pointer;}
+.outline-none{outline: none;}
+.style-none{text-decoration: none !important;}
+.resize-none{resize: none !important;}
+.error-animation{animation: errorAnimation 1.5s infinite 0s linear;}
+input.ng-touched.ng-invalid{animation: errorAnimation 1.5s infinite 0s linear;}
+
+/* Animation */
+@keyframes errorAnimation{
+    0%{border: 1px solid red;box-shadow: 0px 1px 1px 1px red;}
+    100%{}
+}

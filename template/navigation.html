@@ -1,0 +1,55 @@
+<div class = 'container' ng-controller = 'navigationCtrl'>
+    <div class='row'>
+        <nav class = 'col navbar navbar-expand-sm bg-dark navbar-dark p-1 box-shadow-md sticky-top'>
+            <a class = 'navbar-brand ml-1 text-white cursor' ng-href = '#!'>
+                <span class = 'badge badge-primary border border-dark'>G or W</span>
+            </a>
+            <button class = 'navbar-toggler' type = 'button' data-toggle = 'collapse' data-target = '#navigationCollapse'>
+                <span>
+                    <i class = 'fa fa-align-justify'></i>
+                </span>
+            </button>
+            <div class = 'collapse navbar-collapse' id = 'navigationCollapse'>
+                <ul class = 'navbar-nav mr-auto'>
+                    <li class = 'nav-list d-block d-sm-none'>
+                        <a class = 'nav-link'>
+                            <form id = 'search_engine'>
+                                <div class = 'input-group border border-dark'>
+                                    <input type = 'text' ng-model = 'search' class = 'form-control white-placeholder bg-dark text-white' placeholder = 'Search'/>
+                                    <div class = 'input-group-prepend'>
+                                        <span class = 'input-group-text bg-dark'>
+                                            <i class = 'fa fa-search text-white'></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </a>
+                    </li>
+                    <li class = 'nav-list' ng-repeat = 'rn in read_navigation'>
+                        <a class = 'nav-link' ng-href = '{{rn.location}}'>
+                            <i class = 'fa {{rn.logo}}'></i>
+                            <span class = 'text-capitalize'>{{rn.name}}</span>  
+                        </a>
+                    </li>
+                </ul>
+                <ul class = 'navbar-nav d-none d-sm-block'>
+                    <li class = 'nav-list'>
+                        <a class = 'nav-link'>
+                            <form id = 'search_engine'>
+                                <div class = 'input-group border border-dark'>
+                                    <input type = 'text' ng-model = 'search' class = 'form-control white-placeholder bg-dark text-white' placeholder = 'Search'/>
+                                    <div class = 'input-group-prepend'>
+                                        <span class = 'input-group-text bg-dark'>
+                                            <i class = 'fa fa-search text-white'></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class = 'ng-view'></div>

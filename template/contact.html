@@ -1,0 +1,100 @@
+<div class='container mt-3' ng-controller = 'contactCtrl'>
+    <div class = 'row'>
+        <div class = 'col d-flex justify-content-center'>
+            <form name = 'contactForm' class = 'border box-shadow p-3 mt-3' ng-submit = 'contactFormSubmit()'>
+                <h4 class = 'text-center mb-3'>Contact Us</h4> 
+                <div class = 'input-group mb-2'>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-user'></i>
+                        </span>
+                    </div>
+                    <input type = 'text' name = 'fullname' ng-model = 'user.fullname' class = 'form-control' placeholder = 'How shall we call you?' ng-required = 'true' ng-minlength = '2'/>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-check text-success' ng-show = 'contactForm.fullname.$valid'></i>
+                            <i class = 'fa fa-remove text-danger' ng-show = 'contactForm.fullname.$invalid && contactForm.fullname.$touched'></i>
+                        </span>
+                    </div>
+                </div>
+                <p class = 'text-danger m-1' ng-show = 'contactForm.fullname.$touched && contactForm.fullname.$invalid'>
+                    Please, enter your valid full name
+                </p>
+                <div class = 'input-group mb-2'>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-envelope'></i>
+                        </span>
+                    </div>
+                    <input type = 'text' name = 'email' ng-model = 'user.email' class = 'form-control' placeholder = 'Please, enter your email address' ng-required = 'true' ng-pattern = '/^[A-Za-z]+[A-Za-z0-9\._]+@{1}[A-Za-z0-9]+\.{1}[A-Za-z]+$/'/>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-check text-success' ng-show = 'contactForm.email.$valid'></i>
+                            <i class = 'fa fa-remove text-danger' ng-show = 'contactForm.email.$invalid && contactForm.fullname.$touched'></i>
+                        </span>
+                    </div>
+                </div>
+                <p class = 'text-danger m-1' ng-show = 'contactForm.email.$touched && contactForm.email.$invalid'>
+                    Please, enter your valid email address
+                </p>
+                <div class = 'input-group mb-3'>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-intersex'></i>
+                        </span>
+                    </div> &nbsp; &nbsp;
+                    <div class = 'form-check-inline'>
+                        <label class = 'form-check-label'>
+                            <input type = 'radio' class = 'form-check-input' name = 'user.gender' ng-model = 'user.gender' value = 'male'/>
+                            <span>Male</span>
+                        </label>
+                    </div>
+                    <div class = 'form-check-inline'>
+                        <label class = 'form-check-label'>
+                            <input type = 'radio' class = 'form-check-input' name = 'user.gender' ng-model = 'user.gender' value = 'female'/>
+                            <span> Female </span>
+                        </label>
+                    </div>
+                    <div class = 'form-check-inline'>
+                        <label class = 'form-check-label'>
+                            <input type = 'radio' class = 'form-check-input' name = 'user.gender' ng-model = 'user.gender' value = 'other'/>
+                            <span> Other </span>
+                        </label>
+                    </div>
+                </div>
+                <div class = 'input-group mb-3'>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-briefcase'></i>
+                        </span>
+                    </div>
+                    <select name = 'occupation' ng-model = 'user.occupation' class = 'form-control' ng-options = 'o.id as o.description for o in occupations'>
+                        <option value = ''>Please select an occupation</option>
+                    </select>
+                </div>
+                <div class='input-group mb-3'>
+                    <div class='input-group-prepend'>
+                        <span class='input-group-text'>
+                            <i class='fa fa-bullseye'></i>
+                        </span>
+                    </div> &nbsp; &nbsp;
+                    <div class='form-check-inline'>
+                        <label class='form-check-label' ng-repeat = '(x, y) in hobbies '>
+                            <input type='checkbox' class='form-check-input' name='user.hobby[]' ng-model = 'user.hobby[x]'/>
+                            <span>{{y}}</span>
+                        </label>&nbsp; &nbsp;
+                    </div>
+                </div>
+                <div class = 'input-group mb-3'>
+                    <div class = 'input-group-prepend'>
+                        <span class = 'input-group-text'>
+                            <i class = 'fa fa-list-alt'></i>
+                        </span>
+                    </div>
+                    <textarea type = 'text' name = 'description' ng-model = 'user.description' class = 'form-control resize-none' placeholder = 'What is your inquiry about?'></textarea>
+                </div>
+                <input class = 'form-control btn btn-success box-shadow' type = 'submit'/>
+            </form>
+        </div>
+    </div>
+</div>
