@@ -20,8 +20,9 @@ app.controller('contactCtrl', function($scope, $http){
             other: "Other"
         };
 
-    $scope.contactFormSubmit = function(s){
+    $scope.contactFormSubmit = function(){
         var data = this.user;
         var data = angular.element.param(data);
+        console.log(data);
     };
 });
